@@ -40,26 +40,51 @@ Si todo sale bien , el archivo __demo-factura-firmada.xml__ debería estar en do
 ## Corriendo con lenguajes ejemplo
 
 ### PHP:
-`<?php 
-   shell_exec("Java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml");`
+```
+  <?php 
+   shell_exec("Java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml");
+```
 
 ### Python:
-`import subprocess
- subprocess.call(['java', '-jar', '../ruta_personalizada/compilado/firmar-xades.jar' , ‘../ruta_personalizada/cert.p12’ , ‘9856’ , ‘../ruta_personalizada/ demo-factura.xml’, ‘../ruta_personalizada/ demo-factura-firmada.xml’])`
+```
+import subprocess
+subprocess.call([
+  'java',
+  '-jar',
+  '../ruta_personalizada/compilado/firmar-xades.jar',
+  ‘../ruta_personalizada/cert.p12’,
+  ‘9856’,
+  ‘../ruta_personalizada/demo-factura.xml’,
+  ‘../ruta_personalizada/demo-factura-firmada.xml’
+])
+```
 
 ### Ruby:
-`IO.popen( [ 'java', '-jar', '../ruta_personalizada/compilado/firmar-xades.jar,"#{ ../ruta_personalizada/cert.p12}", "#{9856}", “#{../ruta_personalizada/ demo-factura.xml}” ,”#{ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml}” , {SDTERR=>STDOUT} ]`
+```
+IO.popen([
+  'java',
+  '-jar',
+  '../ruta_personalizada/compilado/firmar-xades.jar,
+  "#{ ../ruta_personalizada/cert.p12}",
+  "#{9856}",
+  “#{../ruta_personalizada/demo-factura.xml}”,
+  ”#{../ruta_personalizada/demo-factura-firmada.xml}”,
+  {SDTERR=>STDOUT} 
+])
+```
 
 ### Node.JS:
-`var exec = require('child_process').exec, child;
-child = exec('java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml',
+```
+var exec = require('child_process').exec, child;
+child = exec('java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/demo-factura.xml ../ruta_personalizada/demo-factura-firmada.xml',
   function (error, stdout, stderr){
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
     if(error !== null){
       console.log('exec error: ' + error);
     }
-});`
+});
+```
 
 ### __PD: Si desean mejorar esta documentación será bienvenido.__
 
