@@ -40,13 +40,13 @@ Si todo sale bien , el archivo __demo-factura-firmada.xml__ debería estar en do
 ## Corriendo con lenguajes ejemplo
 
 ### PHP:
-```
+```php
   <?php 
    shell_exec("Java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml");
 ```
 
 ### Python:
-```
+```python
 import subprocess
 subprocess.call([
   'java',
@@ -60,7 +60,7 @@ subprocess.call([
 ```
 
 ### Ruby:
-```
+```ruby
 IO.popen([
   'java',
   '-jar',
@@ -74,7 +74,7 @@ IO.popen([
 ```
 
 ### Node.JS:
-```
+```js
 var exec = require('child_process').exec, child;
 child = exec('java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/demo-factura.xml ../ruta_personalizada/demo-factura-firmada.xml',
   function (error, stdout, stderr){
